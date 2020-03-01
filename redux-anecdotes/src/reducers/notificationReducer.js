@@ -1,9 +1,9 @@
-const notificationReducer = (state = 'Initial notification', action) => {
+const notificationReducer = (state = 'Welcome!', action) => {
   switch (action.type) {
     case 'SET_NOTIFICATION':
       return action.notification
     case 'RESET_NOTIFICATION':
-      return 'NONE'
+      return 'NO_NOTIFICATION'
     default:
       return state
   }
