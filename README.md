@@ -1,1 +1,1 @@
-# full-stack-osa-6
+# Osan 6 tehtävät
