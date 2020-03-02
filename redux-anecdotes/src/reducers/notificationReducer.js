@@ -15,7 +15,7 @@ export const resetNotification = () => (
   }
 )
 
-export const setNotification = (notification, time) => {
+export const setNotification = (notification, seconds) => {
   return async dispatch => {
     dispatch(
       {
@@ -24,7 +24,7 @@ export const setNotification = (notification, time) => {
       }
     )
 
-    setTimeout(() => { dispatch(resetNotification()) }, time)
+    setTimeout(() => { dispatch(resetNotification()) }, seconds * 1000)
   }
 }
 
