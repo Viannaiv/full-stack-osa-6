@@ -15,8 +15,14 @@ export const resetNotification = () => (
   }
 )
 
+let previousTimeoutId = undefined
+
 export const setNotification = (notification, seconds) => {
   return async dispatch => {
+    if (previousTimeoutId !== undefined) {
+      clearTimeout(previousTimeoutId)
+    }
+
     dispatch(
       {
         type: 'SET_NOTIFICATION',
@@ -24,7 +30,9 @@ export const setNotification = (notification, seconds) => {
       }
     )
 
-    setTimeout(() => { dispatch(resetNotification()) }, seconds * 1000)
+    previousTimeoutId = setTimeout(() => {
+      dispatch(resetNotification()) 
+    }, seconds * 1000)
   }
 }
 
